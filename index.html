@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goa Tourism - Experience Paradise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1e88e5;
+            --secondary: #ff6d00;
+            --accent: #00c853;
+            --dark: #1565c0;
+            --light: #e3f2fd;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(to right, var(--dark), var(--primary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 109, 0, 0.3);
+        }
+
+        .btn:hover {
+            background: #ff8500;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 109, 0, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Highlights Section */
+        .highlights {
+            background: var(--light);
+        }
+
+        .highlight-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .card-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Beaches Section */
+        .beaches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .beach-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .beach-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .beach-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .beach-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .beach-card:hover .beach-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .beach-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        /* Culture Section */
+        .culture {
+            background: linear-gradient(to right, var(--dark), var(--primary));
+            color: white;
+        }
+
+        .culture .section-title h2 {
+            color: white;
+        }
+
+        .culture-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .culture-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .culture-features {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .culture-feature {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .culture-feature i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .culture-feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #ddd;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .culture-features {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-umbrella-beach"></i>
+                Goa Tourism
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#highlights">Highlights</a></li>
+                <li><a href="#beaches">Beaches</a></li>
+                <li><a href="#culture">Culture</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Experience Paradise in Goa</h1>
+            <p>Discover sun-kissed beaches, vibrant culture, and unforgettable adventures in India's tropical paradise</p>
+            <a href="#about" class="btn">Explore Goa <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Goa</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>India's Beach Paradise</h3>
+                    <p>Goa is India's smallest state by area and the fourth smallest by population. Located on India's western coast, it is bounded by the state of Maharashtra to the north and by Karnataka to the east and south, with the Arabian Sea forming its western coast.</p>
+                    <p>Goa is visited by large numbers of international and domestic tourists each year for its white-sand beaches, active nightlife, places of worship, and World Heritage-listed architecture.</p>
+                    <p>It has rich flora and fauna, owing to its location on the Western Ghats range, which is classified as a biodiversity hotspot.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1598940603846-a1edd0ef2574?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Goa Landscape">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights" id="highlights">
+        <div class="container">
+            <div class="section-title">
+                <h2>Goa Highlights</h2>
+            </div>
+            <div class="highlight-cards">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1571718989367-0938abbd1b0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Beaches">
+                    </div>
+                    <div class="card-content">
+                        <h3>Stunning Beaches</h3>
+                        <p>From popular Calangute and Baga to serene Palolem and Agonda, Goa offers diverse beach experiences for every traveler.</p>
+                        <a href="#" class="read-more">Explore Beaches <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-16299259044d-89f8b314fe6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Portuguese Architecture">
+                    </div>
+                    <div class="card-content">
+                        <h3>Rich Heritage</h3>
+                        <p>Explore Goa's Portuguese colonial past through its magnificent churches, forts, and colorful architecture.</p>
+                        <a href="#" class="read-more">Discover Heritage <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1671&q=80" alt="Goan Cuisine">
+                    </div>
+                    <div class="card-content">
+                        <h3>Delicious Cuisine</h3>
+                        <p>Savor the unique flavors of Goan food - a blend of Portuguese and Indian influences with fresh seafood.</p>
+                        <a href="#" class="read-more">Taste Goa <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beaches Section -->
+    <section class="beaches" id="beaches">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Beaches</h2>
+            </div>
+            <div class="beaches-grid">
+                <div class="beach-card">
+                    <img src="https://images.unsplash.com/photo-1597212618446-362778f373ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Calangute Beach">
+                    <div class="beach-info">
+                        <h3>Calangute Beach</h3>
+                        <p>The Queen of Beaches</p>
+                    </div>
+                </div>
+                <div class="beach-card">
+                    <img src="https://images.unsplash.com/photo-1571718989367-0938abbd1b0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Baga Beach">
+                    <div class="beach-info">
+                        <h3>Baga Beach</h3>
+                        <p>Famous for nightlife</p>
+                    </div>
+                </div>
+                <div class="beach-card">
+                    <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80" alt="Palolem Beach">
+                    <div class="beach-info">
+                        <h3>Palolem Beach</h3>
+                        <p>Serene and picturesque</p>
+                    </div>
+                </div>
+                <div class="beach-card">
+                    <img src="https://images.unsplash.com/photo-1599562215746-6b58cb3767e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Anjuna Beach">
+                    <div class="beach-info">
+                        <h3>Anjuna Beach</h3>
+                        <p>Famous for flea market</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="culture" id="culture">
+        <div class="container">
+            <div class="section-title">
+                <h2>Goan Culture</h2>
+            </div>
+            <div class="culture-content">
+                <p>Goa's culture is a unique blend of Indian and Portuguese influences, reflected in its architecture, cuisine, and festivals. The state is known for its laid-back lifestyle, vibrant celebrations, and warm hospitality.</p>
+                <div class="culture-features">
+                    <div class="culture-feature">
+                        <i class="fas fa-church"></i>
+                        <h3>Architecture</h3>
+                        <p>Colonial churches and Portuguese-style homes</p>
+                    </div>
+                    <div class="culture-feature">
+                        <i class="fas fa-music"></i>
+                        <h3>Music & Dance</h3>
+                        <p>Traditional folk dances and Konkani music</p>
+                    </div>
+                    <div class="culture-feature">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Cuisine</h3>
+                        <p>Fusion of Portuguese and Indian flavors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Explore Goa?</h2>
+            <p>Plan your perfect Goan getaway with our travel guides, accommodation recommendations, and curated experiences.</p>
+            <a href="#" class="btn">Plan Your Trip <i class="fas fa-plane"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Goa Tourism</h3>
+                    <p>Discover the pearl of the Orient with our comprehensive travel guides and recommendations for the perfect Goan vacation.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Goa</a></li>
+                        <li><a href="#highlights">Travel Highlights</a></li>
+                        <li><a href="#beaches">Beaches</a></li>
+                        <li><a href="#culture">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Goa Tourism Development Corporation, Panaji, Goa</li>
+                        <li><i class="fas fa-phone"></i> +91 832 2437132</li>
+                        <li><i class="fas fa-envelope"></i> info@goatourism.gov.in</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Goa Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'var(--dark)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.background = 'linear-gradient(to right, var(--dark), var(--primary))';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+            }
+        });
+    </script>
+</body>
+</html>
